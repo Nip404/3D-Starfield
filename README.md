@@ -1,17 +1,10 @@
 # 3D-Starfield
 A 3D starfield generator using perspective drawing in Python 3.x using the Pygame library.
 
-I have included a customisable radius, screen size, and centre point of the clock.
+I found some interesting effects by oscillating the fov between -500 and 500, which can be seen by toggling on the "big_bang_effect" variable.
 
 # Maths
-I calculate the coordinates of the circumference of the circle using these equations:
-- x = cx + r * cos(theta)
-- y = cy + r * sin(theta)
-
-where (cx,cy) is the centre point of the circle, r is the radius, and theta is the angle in [radians](https://en.wikipedia.org/wiki/Radian).\
-Note that radians=0 begins at the rightmost point on the circle.
-
-Refer to this [wikipedia article](http://en.wikipedia.org/wiki/Circle#Equations) for more information on Parametric equations.
+I used [Weak Perspective Projection](https://en.wikipedia.org/wiki/3D_projection#Weak_perspective_projection) to draw the stars, and shaded the stars in grayscale according to their distance from the "eye".
 
 # Requirements
 I am using the [Python 3.7](https://www.python.org/downloads/release/python-370/) IDLE.\
