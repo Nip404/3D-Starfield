@@ -3,7 +3,7 @@ import pygame
 
 # SETTINGS
 refresh_screen = True
-big_bang_effect = False
+effect = False
 follow_mouse = False
 
 s = [800,600]
@@ -33,7 +33,7 @@ def main():
         if refresh_screen:
             screen.fill((0,0,0))
 
-        if big_bang_effect:
+        if bb_effect:
             mode = bbe(mode,sf)
 
         if follow_mouse:
