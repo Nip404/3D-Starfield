@@ -1,7 +1,7 @@
 # 3D-Starfield
 A 3D starfield generator using perspective drawing in Python 3.x using the Pygame library.
 
-I found some interesting effects by oscillating the fov between -500 and 500, which can be seen by toggling on the "big_bang_effect" variable.
+I found some interesting effects by oscillating the scaling factor between -500 and 500, which can be seen by toggling on the "bb_effect" variable.
 
 # Maths
 I used [Weak Perspective Projection](https://en.wikipedia.org/wiki/3D_projection#Weak_perspective_projection) to draw the stars, and shaded the stars in grayscale according to their distance from the "eye".
