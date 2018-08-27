@@ -6,7 +6,7 @@ class Star:
     def __init__(self,x,y,z,surf,speed):
         self.ranges = [x,y,z]
 
-        self.fov = 128
+        self.factorz = 128
         
         self.pos = self.get_pos(x,y,z)
         self.surf = surf
@@ -18,13 +18,13 @@ class Star:
 
     def draw(self):
         try:
-            pygame.draw.circle(self.surf,[(1-self.pos["z"]/self.ranges[2])*255]*3,list(map(int,(self.pos["x"]*(self.fov/self.pos["z"])+self.centre[0],self.pos["y"]*(self.fov/self.pos["z"])+self.centre[1]))),int((1-self.pos["z"]/self.ranges[2])*2.5),0)
+            pygame.draw.circle(self.surf,[(1-self.pos["z"]/self.ranges[2])*255]*3,list(map(int,(self.pos["x"]*(self.factor/self.pos["z"])+self.centre[0],self.pos["y"]*(self.factor/self.pos["z"])+self.centre[1]))),int((1-self.pos["z"]/self.ranges[2])*2.5),0)
         except:
             pass
         
     def animate(self):
         self.pos["z"] -= self.speed
-        self.pos = self.get_pos(self.ranges[0],self.ranges[1],self.ranges[2]) if self.pos["z"] <= 0 or not all(0 <= i <= [self.surf.get_width(),self.surf.get_height()][p] for p,i in enumerate((self.pos["x"]*(self.fov/self.pos["z"])+self.centre[0],self.pos["y"]*(self.fov/self.pos["z"])+self.centre[1]))) else self.pos
+        self.pos = self.get_pos(self.ranges[0],self.ranges[1],self.ranges[2]) if self.pos["z"] <= 0 or not all(0 <= i <= [self.surf.get_width(),self.surf.get_height()][p] for p,i in enumerate((self.pos["x"]*(self.factor/self.pos["z"])+self.centre[0],self.pos["y"]*(self.factor/self.pos["z"])+self.centre[1]))) else self.pos
         
 class Starfield:
     def __init__(self,amount,surf,xrange=100,yrange=100,zrange=100,speedrange=1):
